@@ -55,9 +55,13 @@ function rotate() {
   spinElement.textContent = !velocidadAngular ? 'GIRAR' : elementoSelecionado.label.toUpperCase();
   spinElement.style.background = elementoSelecionado.color;
   if (!velocidadAngular) {
-    console.log('elemento sorteado -> ' + elementoSelecionado.label.toUpperCase());
-    resultText.textContent = elementoSelecionado.label.toUpperCase();
+    displayResult(elementoSelecionado);
   }
+}
+
+function displayResult(elementoSelecionado) {
+  console.log('elemento sorteado -> ' + elementoSelecionado.label.toUpperCase());
+  resultText.textContent = elementoSelecionado.label.toUpperCase();
 }
 
 function frame() {
@@ -79,7 +83,11 @@ function init() {
   // rotate(); // Initial rotation , llamado para rotacion inicial y selecionar el elemento por default...
   engine(); // Start engine animation
   spinElement.addEventListener('click', () => {
-    if (!velocidadAngular) velocidadAngular = rand(0.25, 0.45);
+    // la ruleta no esta jirando(la velocidad angular es cero), la ruleta no esta jirando
+    if (!velocidadAngular) {
+      console.log('sorteo iniciado');
+      velocidadAngular = rand(0.25, 0.45);
+    }
   });
 }
 
