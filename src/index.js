@@ -4,21 +4,6 @@ const elementos = [
   { color: '#fb0', label: '200' },
   { color: '#0fb', label: '50' },
   { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#0fb', label: '50' },
-  { color: '#b0f', label: '100' },
-  { color: '#b0f', label: '100' },
-  { color: '#b0f', label: '100' },
-  { color: '#b0f', label: '100' },
-  { color: '#b0f', label: '100' },
-  { color: '#b0f', label: '100' },
-  { color: '#b0f', label: '100' },
   { color: '#b0f', label: '100' },
   { color: '#f0b', label: '5' },
   { color: '#bf0', label: '500' },
@@ -40,7 +25,9 @@ let ang = 0; // Angle in radians
 const getIndex = len => Math.floor(len - (ang / TAU) * len) % len;
 
 // puede reciribir los 3 elementos y en base al tercer elemento que sea el elementos length
-function drawSector(elementItem, index) {
+function drawSector(elementItem, index, array) {
+  console.log(arguments[0], arguments[1], arguments[2]);
+
   let arcoLocal = TAU / elementos.length;
   const ang = arcoLocal * index;
   context.save();
