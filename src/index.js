@@ -8,6 +8,7 @@ const elementos = [
   { color: '#f0b', label: '5' },
   { color: '#bf0', label: '500' },
 ];
+// TODO: inicialize from random elements
 
 const spinElement = document.querySelector('#spin');
 const context = document.querySelector('#wheel').getContext('2d');
@@ -61,7 +62,8 @@ function rotate() {
 
 function displayResult(elementoSelecionado) {
   console.log('elemento sorteado -> ' + elementoSelecionado.label.toUpperCase());
-  resultText.textContent = elementoSelecionado.label.toUpperCase();
+  resultText.textContent =
+    elementoSelecionado.label.toUpperCase() + ' ' + elementoSelecionado.color;
 }
 
 function frame() {
@@ -92,12 +94,11 @@ function init() {
 }
 
 function addElement() {
-  console.log('add ele');
+  // TODO: addd random element
   elementos.push({
     color: '#0fb',
     label: 'test',
   });
-  console.log(elementos.length);
   elementos.forEach(drawSector);
 }
 
