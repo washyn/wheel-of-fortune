@@ -9,10 +9,10 @@ const elementos = [
   { color: '#bf0', label: '500' },
 ];
 
-const rand = (min, max) => Math.random() * (max - min) + min;
 const spinElement = document.querySelector('#spin');
 const context = document.querySelector('#wheel').getContext('2d');
 const resultText = document.querySelector('#resultText');
+
 const dia = context.canvas.width;
 const rad = dia / 2;
 const PI = Math.PI;
@@ -23,6 +23,7 @@ let velocidadAngular = 0; // Angular velocity
 let ang = 0; // Angle in radians
 
 const getIndex = len => Math.floor(len - (ang / TAU) * len) % len;
+const rand = (min, max) => Math.random() * (max - min) + min;
 
 // puede reciribir los 3 elementos y en base al tercer elemento que sea el elementos length
 function drawSector(elementItem, index, array) {
