@@ -27,9 +27,7 @@ const rand = (min, max) => Math.random() * (max - min) + min;
 
 // puede reciribir los 3 elementos y en base al tercer elemento que sea el elementos length
 function drawSector(elementItem, index, array) {
-  console.log(arguments[0], arguments[1], arguments[2]);
-
-  let arcoLocal = TAU / elementos.length;
+  let arcoLocal = TAU / array.length;
   const ang = arcoLocal * index;
   context.save();
   // COLOR
