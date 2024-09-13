@@ -1,5 +1,5 @@
 const sectors = [
-  { color: '#f82', label: 'Stack' },
+  { color: '#f82', label: 'dss' },
   { color: '#0bf', label: '10' },
   { color: '#fb0', label: '200' },
   { color: '#0fb', label: '50' },
@@ -8,7 +8,7 @@ const sectors = [
   { color: '#bf0', label: '500' },
 ];
 
-const rand = (m, M) => Math.random() * (M - m) + m;
+const rand = (min, max) => Math.random() * (max - min) + min;
 const tot = sectors.length;
 const spinEl = document.querySelector('#spin');
 const ctx = document.querySelector('#wheel').getContext('2d');
