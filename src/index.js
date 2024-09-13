@@ -1,4 +1,4 @@
-const sectors = [
+const elementos = [
   { color: '#f82', label: 'dss' },
   { color: '#0bf', label: '10' },
   { color: '#fb0', label: '200' },
@@ -9,54 +9,54 @@ const sectors = [
 ];
 
 const rand = (min, max) => Math.random() * (max - min) + min;
-const tot = sectors.length;
-const spinEl = document.querySelector('#spin');
-const ctx = document.querySelector('#wheel').getContext('2d');
-const dia = ctx.canvas.width;
+const totalElementos = elementos.length;
+const spinElement = document.querySelector('#spin');
+const context = document.querySelector('#wheel').getContext('2d');
+const dia = context.canvas.width;
 const rad = dia / 2;
 const PI = Math.PI;
 const TAU = 2 * PI;
-const arc = TAU / sectors.length;
+const arc = TAU / elementos.length;
 
 const friction = 0.991; // 0.995=soft, 0.99=mid, 0.98=hard
-let angVel = 0; // Angular velocity
+let velocidadAngular = 0; // Angular velocity
 let ang = 0; // Angle in radians
 
-const getIndex = () => Math.floor(tot - (ang / TAU) * tot) % tot;
+const getIndex = () => Math.floor(totalElementos - (ang / TAU) * totalElementos) % totalElementos;
 
-function drawSector(sector, i) {
-  const ang = arc * i;
-  ctx.save();
+function drawSector(elementItem, index) {
+  const ang = arc * index;
+  context.save();
   // COLOR
-  ctx.beginPath();
-  ctx.fillStyle = sector.color;
-  ctx.moveTo(rad, rad);
-  ctx.arc(rad, rad, rad, ang, ang + arc);
-  ctx.lineTo(rad, rad);
-  ctx.fill();
+  context.beginPath();
+  context.fillStyle = elementItem.color;
+  context.moveTo(rad, rad);
+  context.arc(rad, rad, rad, ang, ang + arc);
+  context.lineTo(rad, rad);
+  context.fill();
   // TEXT
-  ctx.translate(rad, rad);
-  ctx.rotate(ang + arc / 2);
-  ctx.textAlign = 'right';
-  ctx.fillStyle = '#fff';
-  ctx.font = 'bold 30px sans-serif';
-  ctx.fillText(sector.label, rad - 10, 10);
+  context.translate(rad, rad);
+  context.rotate(ang + arc / 2);
+  context.textAlign = 'right';
+  context.fillStyle = '#fff';
+  context.font = 'bold 30px sans-serif';
+  context.fillText(elementItem.label, rad - 10, 10);
   //
-  ctx.restore();
+  context.restore();
 }
 
 function rotate() {
-  const sector = sectors[getIndex()];
-  ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
-  spinEl.textContent = !angVel ? 'SPIN' : sector.label;
-  spinEl.style.background = sector.color;
+  const elementoSelecionado = elementos[getIndex()];
+  context.canvas.style.transform = `rotate(${ang - PI / 2}rad)`;
+  spinElement.textContent = !velocidadAngular ? 'GIRAR' : elementoSelecionado.label;
+  spinElement.style.background = elementoSelecionado.color;
 }
 
 function frame() {
-  if (!angVel) return;
-  angVel *= friction; // Decrement velocity by friction
-  if (angVel < 0.002) angVel = 0; // Bring to stop
-  ang += angVel; // Update angle
+  if (!velocidadAngular) return;
+  velocidadAngular *= friction; // Decrement velocity by friction
+  if (velocidadAngular < 0.002) velocidadAngular = 0; // Bring to stop
+  ang += velocidadAngular; // Update angle
   ang %= TAU; // Normalize angle
   rotate();
 }
@@ -67,11 +67,11 @@ function engine() {
 }
 
 function init() {
-  sectors.forEach(drawSector);
+  elementos.forEach(drawSector);
   rotate(); // Initial rotation
   engine(); // Start engine
-  spinEl.addEventListener('click', () => {
-    if (!angVel) angVel = rand(0.25, 0.45);
+  spinElement.addEventListener('click', () => {
+    if (!velocidadAngular) velocidadAngular = rand(0.25, 0.45);
   });
 }
 
