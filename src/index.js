@@ -103,3 +103,5 @@ function addElement() {
 }
 
 init();
+
+// TODO: add coments
