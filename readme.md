@@ -1,6 +1,10 @@
-NOTE:
+# NOTE:
 
-https://codesandbox.io/p/sandbox/wheel-of-fortune-1475d
+Proyecto para realizar un sorteo en html con canvas.
+
+![Captura de pantalla](Screenshot_123.png)
+
+Url del proyecto original: https://codesandbox.io/p/sandbox/wheel-of-fortune-1475d
 
 Source translated.
 
