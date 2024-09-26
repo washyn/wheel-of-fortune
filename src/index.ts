@@ -1,10 +1,23 @@
 export interface Persona {
-  // id: number;
+  id: string;
   nombre: string;
   color: string;
 }
-//
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Generate a random UUID
+const random_uuid = uuidv4();
+
+// Print the UUID
+console.log(random_uuid);
+
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0,
+      v = c == 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 let nombresTemporales = [
   'Mairead',
@@ -12,35 +25,6 @@ let nombresTemporales = [
   'Jude',
   'Gizelle',
   'Zayla',
-  'Dov',
-  'Garrett',
-  'Azriel',
-  'Trey',
-  'Clyde',
-  'Dex',
-  'Ayra',
-  'Kamaya',
-  'Bricen',
-  'Kaylei',
-  'Loki',
-  'Ivette',
-  'Malcom',
-  'Ezrah',
-  'Jenika',
-  'Jesiah',
-  'Gilberto',
-  'Evaline',
-  'Kellen',
-  'Khristian',
-  'Dania',
-  'Mateo',
-  'Karas',
-  'Sirena',
-  'Lissette',
-  'Tressa',
-  'Michelle',
-  'Calissa',
-  'Ansleigh',
   'Maxine',
   'David',
   'Lovely',
@@ -79,6 +63,7 @@ function initializeParticipantes() {
     let randIndex = randomNumberInt(1, nombresTemporales.length - 1);
     let nombre = nombresTemporales[randIndex];
     tempResult.push({
+      id: uuidv4(),
       nombre: nombre,
       color: tempResult.length % 2 == 0 ? '#030303' : '#EC1206',
     });
@@ -86,16 +71,7 @@ function initializeParticipantes() {
   return tempResult;
 }
 
-let personas: Persona[] = [
-  // { color: '#030303', nombre: 'dss' },
-  // { color: '#EC1206', nombre: '10' },
-  // { color: '#fb0', nombre: '200' },
-  // { color: '#0fb', nombre: '50' },
-  // { color: '#0fb', nombre: '50' },
-  // { color: '#b0f', nombre: '100' },
-  // { color: '#f0b', nombre: '5' },
-  // { color: '#bf0', nombre: '500' },
-];
+let personas: Persona[] = [];
 
 const spinElement = document.querySelector('#spin') as HTMLDivElement;
 const canvas = document.querySelector('#wheel') as HTMLCanvasElement;
@@ -145,8 +121,10 @@ function rotate() {
   spinElement.textContent = !velocidadAngular ? 'GIRAR' : elementoSelecionado.nombre.toUpperCase();
   spinElement.style.background = elementoSelecionado.color;
   if (!velocidadAngular) {
-    console.log('Elemento sorteado -> ' + elementoSelecionado.nombre.toUpperCase());
-    resultText.textContent = elementoSelecionado.nombre.toUpperCase();
+    let elementoSorteado = elementoSelecionado;
+    console.log('Elemento sorteado -> ', elementoSorteado);
+    console.log('Elemento sorteado -> ' + elementoSorteado.nombre.toUpperCase());
+    resultText.textContent = elementoSorteado.nombre.toUpperCase();
   }
 }
 
@@ -178,12 +156,3 @@ function init(): void {
 // TODO: se puede crear otro botton para hacer la rotacion de la ruleta
 // Inicialización
 init();
-
-// Agrega un nuevo elemento a la ruleta
-function addElement(): void {
-  personas.push({
-    color: '#0fb',
-    nombre: 'test',
-  });
-  personas.forEach(drawElemets);
-}
