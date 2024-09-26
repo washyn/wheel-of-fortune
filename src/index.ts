@@ -4,15 +4,97 @@ export interface Persona {
   color: string;
 }
 //
-const personas: Persona[] = [
-  { color: '#030303', nombre: 'dss' },
-  { color: '#EC1206', nombre: '10' },
-  { color: '#fb0', nombre: '200' },
-  { color: '#0fb', nombre: '50' },
-  { color: '#0fb', nombre: '50' },
-  { color: '#b0f', nombre: '100' },
-  { color: '#f0b', nombre: '5' },
-  { color: '#bf0', nombre: '500' },
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+let nombresTemporales = [
+  'Mairead',
+  'Jalon',
+  'Jude',
+  'Gizelle',
+  'Zayla',
+  'Dov',
+  'Garrett',
+  'Azriel',
+  'Trey',
+  'Clyde',
+  'Dex',
+  'Ayra',
+  'Kamaya',
+  'Bricen',
+  'Kaylei',
+  'Loki',
+  'Ivette',
+  'Malcom',
+  'Ezrah',
+  'Jenika',
+  'Jesiah',
+  'Gilberto',
+  'Evaline',
+  'Kellen',
+  'Khristian',
+  'Dania',
+  'Mateo',
+  'Karas',
+  'Sirena',
+  'Lissette',
+  'Tressa',
+  'Michelle',
+  'Calissa',
+  'Ansleigh',
+  'Maxine',
+  'David',
+  'Lovely',
+  'Rhyan',
+  'Rey',
+  'Cannon',
+  'Roshan',
+  'Omere',
+  'Simeon',
+  'Taylan',
+  'Karl',
+  'Tyrese',
+  'Mali',
+  'Abella',
+  'Abriella',
+  'Mervin',
+  'Talia',
+  'Kori',
+  'Daisy',
+  'Cayleigh',
+  'Cameron',
+  'Abdallah',
+  'Ocean',
+  'Laine',
+  'Domonic',
+  'Ronaldo',
+];
+
+const randomNumberInt = (min: number, max: number) => Math.round(Math.random() * (max - min) + min);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function initializeParticipantes() {
+  let tempResult: Persona[] = [];
+  let cantidad = randomNumberInt(5, 50);
+  for (let index = 0; index < cantidad; index++) {
+    let randIndex = randomNumberInt(1, nombresTemporales.length - 1);
+    let nombre = nombresTemporales[randIndex];
+    tempResult.push({
+      nombre: nombre,
+      color: tempResult.length % 2 == 0 ? '#030303' : '#EC1206',
+    });
+  }
+  return tempResult;
+}
+
+let personas: Persona[] = [
+  // { color: '#030303', nombre: 'dss' },
+  // { color: '#EC1206', nombre: '10' },
+  // { color: '#fb0', nombre: '200' },
+  // { color: '#0fb', nombre: '50' },
+  // { color: '#0fb', nombre: '50' },
+  // { color: '#b0f', nombre: '100' },
+  // { color: '#f0b', nombre: '5' },
+  // { color: '#bf0', nombre: '500' },
 ];
 
 const spinElement = document.querySelector('#spin') as HTMLDivElement;
@@ -86,13 +168,14 @@ function engine(): void {
 
 // Inicializa la ruleta y configura los eventos
 function init(): void {
+  personas = initializeParticipantes();
   personas.forEach(drawElemets);
   engine(); // Inicia la animación del motor
   spinElement.addEventListener('click', () => {
     if (!velocidadAngular) velocidadAngular = random(0.25, 0.45);
   });
 }
-
+// TODO: se puede crear otro botton para hacer la rotacion de la ruleta
 // Inicialización
 init();
 
@@ -104,9 +187,3 @@ function addElement(): void {
   });
   personas.forEach(drawElemets);
 }
-
-console.log('hello worl...');
-console.log('hello worl...........');
-console.log('hello worl...........');
-console.log('hello worl...........');
-console.log('hello worl...........');
