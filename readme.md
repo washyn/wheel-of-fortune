@@ -8,6 +8,69 @@ Url del proyecto original: https://codesandbox.io/p/sandbox/wheel-of-fortune-147
 
 Source translated.
 
+Sample names:
+
+- Mairead
+- Jalon
+- Jude
+- Gizelle
+- Zayla
+- Dov
+- Garrett
+- Azriel
+- Trey
+- Clyde
+- Dex
+- Ayra
+- Kamaya
+- Bricen
+- Kaylei
+- Loki
+- Ivette
+- Malcom
+- Ezrah
+- Jenika
+- Jesiah
+- Gilberto
+- Evaline
+- Kellen
+- Khristian
+- Dania
+- Mateo
+- Karas
+- Sirena
+- Lissette
+- Tressa
+- Michelle
+- Calissa
+- Ansleigh
+- Maxine
+- David
+- Lovely
+- Rhyan
+- Rey
+- Cannon
+- Roshan
+- Omere
+- Simeon
+- Taylan
+- Karl
+- Tyrese
+- Mali
+- Abella
+- Abriella
+- Mervin
+- Talia
+- Kori
+- Daisy
+- Cayleigh
+- Cameron
+- Abdallah
+- Ocean
+- Laine
+- Domonic
+- Ronaldo
+
 ```ts
 // Definición de tipo para los elementos de la ruleta
 type Elemento = {

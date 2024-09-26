@@ -104,4 +104,4 @@ function addElement() {
 
 init();
 
-// TODO: add coments
+// TODO: add coments, add real exammple, add real colors for each element and show.
