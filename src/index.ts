@@ -154,5 +154,6 @@ function init(): void {
   });
 }
 // TODO: se puede crear otro botton para hacer la rotacion de la ruleta
+// TODO: agregar boton para probar la inicializacion...
 // Inicialización
 init();
