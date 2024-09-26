@@ -3,10 +3,10 @@ export interface Persona {
   nombre: string;
   color: string;
 }
-
+//
 const personas: Persona[] = [
-  { color: '#f82', nombre: 'dss' },
-  { color: '#0bf', nombre: '10' },
+  { color: '#030303', nombre: 'dss' },
+  { color: '#EC1206', nombre: '10' },
   { color: '#fb0', nombre: '200' },
   { color: '#0fb', nombre: '50' },
   { color: '#0fb', nombre: '50' },
@@ -104,3 +104,9 @@ function addElement(): void {
   });
   personas.forEach(drawElemets);
 }
+
+console.log('hello worl...');
+console.log('hello worl...........');
+console.log('hello worl...........');
+console.log('hello worl...........');
+console.log('hello worl...........');
